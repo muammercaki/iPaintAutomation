@@ -10,7 +10,6 @@ import org.testng.annotations.BeforeTest;
 import pages.Page;
 import utils.Links;
 
-
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -30,10 +29,7 @@ public class BaseTest {
         caps.setCapability("noReset", "True");
         caps.setCapability("fullReset", "False");
         caps.setCapability("app", System.getProperty("user.dir") + "/apps/app-release.apk");
-
         driver = new AndroidDriver(new URL(Links.appiumLocal), caps);
-
-
     }
 
     @AfterTest
