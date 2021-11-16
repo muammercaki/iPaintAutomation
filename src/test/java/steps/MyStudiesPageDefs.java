@@ -2,10 +2,8 @@ package steps;
 
 import base.BaseTest;
 
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.By;
 import pages.CategoriesPage;
 import pages.MyStudiesPage;
 import pages.Page;
@@ -16,8 +14,8 @@ public class MyStudiesPageDefs extends BaseTest {
     MyStudiesPage myStudiesPage;
     CategoriesPage categoriesPage;
     Page page;
-    private By navBarMyStudies = By.id("com.teknasyon.coloringbook:id/myWork");
-    private By startPaintingButton = By.id("com.teknasyon.coloringbook:id/startPainting");
+
+
 
     @Given("Go To My Studies Page")
     public void goToMyStudiesPage() throws MalformedURLException {
@@ -26,21 +24,20 @@ public class MyStudiesPageDefs extends BaseTest {
         myStudiesPage = new MyStudiesPage(driver);
         page = new Page(driver);
         page.implicitlyWait(3);
-        myStudiesPage.closeAdvertising1();
-        // homePage.closeAdvertising2();
+        myStudiesPage.clikCloseAdvertising();
 
-        myStudiesPage.clickElement(navBarMyStudies);
+        myStudiesPage.clickElement(myStudiesPage.navBarMyStudies);
 
     }
 
-    @Given("My Studies Page Get Title")
-    public void myStudiesPageGetTitle() {
-        myStudiesPage.myStudiesPageTitle();
+    @Then("My Studies Page Get Title {string}")
+    public void myStudiesPageGetTitle(String title) {
+        myStudiesPage.myStudiesPageTitle(myStudiesPage.myStudiesTitle,title);
     }
 
     @Given("Click Start Painting Button")
     public void clickStartPaintingButton() {
-        myStudiesPage.clickElement(startPaintingButton);
+        myStudiesPage.clickElement(myStudiesPage.startPaintingButton);
     }
 
     @Then("Go To Categories Page")
@@ -49,4 +46,6 @@ public class MyStudiesPageDefs extends BaseTest {
         categoriesPage = new CategoriesPage(driver);
         categoriesPage.categoriesPageTitle();
     }
+
+
 }

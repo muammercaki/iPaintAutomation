@@ -6,7 +6,6 @@ import base.BaseTest;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.By;
 import pages.CategoriesPage;
 
 import java.net.MalformedURLException;
@@ -15,33 +14,28 @@ import java.net.MalformedURLException;
 public class CategoriesPageDefs extends BaseTest {
     CategoriesPage categoriesPage;
 
-    private By navBarCategories = By.id("com.teknasyon.coloringbook:id/categories");
-    private By backCategories = By.id("com.teknasyon.coloringbook:id/back");
-
-    private By firstAnimalPicture = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.RelativeLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.ImageView");
-
 
     @Given("Click Navigation Bar To Categories")
     public void clickNavigationBarToCategories() throws MalformedURLException {
         setUp();
         categoriesPage = new CategoriesPage(driver);
         categoriesPage.implicitlyWait(2);
-
-        categoriesPage.closeAdvertising1();
+        categoriesPage.clikCloseAdvertising();
         categoriesPage.implicitlyWait(3);
-        categoriesPage.clickElement(navBarCategories);
+        categoriesPage.clickElement(categoriesPage.navBarCategories);
     }
 
-    @Then("Categories Page Get Title")
-    public void categoriesPageGetTitle() {
+    @Then("Categories Page Get Title {string}")
+    public void categoriesPageGetTitle(String categoriesTitle) {
         categoriesPage.implicitlyWait(3);
-        categoriesPage.categoriesPageTitle();
+        categoriesPage.getTitlePage(categoriesPage.categoriesTitle,categoriesTitle);
+
     }
 
     @Given("Go To Categories Page With Navigation Bar")
     public void goToCategoriesPageWithNavigationBar() throws MalformedURLException {
         clickNavigationBarToCategories();
-        categoriesPage.clickElement(navBarCategories);
+        categoriesPage.clickElement(categoriesPage.navBarCategories);
     }
 
     @And("Child Categories Right Swipe")
@@ -62,13 +56,13 @@ public class CategoriesPageDefs extends BaseTest {
 
     @And("Click Animal Categories First Picture")
     public void clickAnimalCategoriesFirstPicture() throws InterruptedException {
-    categoriesPage.clickElement(firstAnimalPicture);
+    categoriesPage.clickElement(categoriesPage.firstAnimalPicture);
     Thread.sleep(3000);
     }
 
     @And("Back To Categories")
     public void backToCategories() {
-        categoriesPage.clickElement(backCategories);
+        categoriesPage.clickElement(categoriesPage.backCategories);
 
     }
 

@@ -3,7 +3,7 @@ Feature: Categories Page
 
   Scenario: Categories Page Get Title
     Given Click Navigation Bar To Categories
-    Then Categories Page Get Title
+    Then Categories Page Get Title "Kategoriler"
 
   Scenario: Child Categories Detail in Categories Page
     Given Go To Categories Page With Navigation Bar

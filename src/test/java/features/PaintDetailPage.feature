@@ -1,4 +1,4 @@
-@PaintDetailPage
+
 Feature: Picture Detail
 
   Scenario: Picture Paint

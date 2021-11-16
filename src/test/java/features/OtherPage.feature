@@ -1,22 +1,22 @@
-@OtherPage
+
 Feature: Other Page
 
   Scenario: Other Page Get Title
     Given Go To Other Page
-    Then Other Page Get Title
+    Then Other Page Get Title "Diğerleri"
 
   Scenario: Contact Us
     Given Go To Other Page
     And Click Contact Us Button
     Then Open Contact Us Page
     And Click Write To Us Button
-    And Name Field is Filled
-    And Email Field is Filled
+    And Name Field is Filled "Test User"
+    And Email Field is Filled "test@gmail.com"
     And Topic is Selected
-    And Write To Message
+    And Write To Message "Test Message"
     And Screen Down Swipe
     And Click Submit Button
-    Then Send Message Successfully
+    Then Send Message Successfully "Teşekkürler"
 
   Scenario: Change Language
     Given Go To Other Page

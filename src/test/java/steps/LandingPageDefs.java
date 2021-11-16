@@ -22,58 +22,59 @@ public class LandingPageDefs extends BaseTest {
 
     }
 
-    @And("First Page Get Title")
-    public void firstPageGetTitle() throws InterruptedException {
+    @And("First Page Get Title {string}")
+    public void firstPageGetTitle(String firstTitle) throws InterruptedException {
         Thread.sleep(3000);
         landingPage = new LandingPage(driver);
-        landingPage.getFirstPageTitle();
+        landingPage.getTitlePage(landingPage.pageTitle, firstTitle);
     }
 
-    @And("First Page Get Description")
-    public void firstPageGetDescription() {
-        landingPage.getFirstPageDescription();
+
+    @And("First Page Get Description {string}")
+    public void firstPageGetDescription(String firstDesc) {
+        landingPage.getTitlePage(landingPage.pageDetailText, firstDesc);
     }
 
     @When("First Page Skip Button")
     public void firstPageSkipButton() {
-        landingPage.clickSkipButton();
+        landingPage.clickElement(landingPage.skipButton);
     }
 
-    @Then("Go To Second Page Get Title")
-    public void goToSecondPageGetTitle() throws InterruptedException {
-        landingPage.getSecondPageTitle();
+    @Then("Go To Second Page Get Title {string}")
+    public void goToSecondPageGetTitle(String secondTitle) {
+        landingPage.getTitlePage(landingPage.pageTitle, secondTitle);
     }
 
-    @And("Second Page Get Description")
-    public void secondPageGetDescription() {
-        landingPage.getSecondPageDescription();
+    @And("Second Page Get Description {string}")
+    public void secondPageGetDescription(String secondDesc) {
+        landingPage.getTitlePage(landingPage.pageDetailText, secondDesc);
     }
 
     @When("Second Page Skip Button")
     public void secondPageSkipButton() {
-        landingPage.clickSkipButton();
+        landingPage.clickElement(landingPage.skipButton);
     }
 
-    @Then("Go To Third Page Get Title")
-    public void goToThirdPageGetTitle() {
-        landingPage.getThirdPageTitle();
+    @Then("Go To Third Page Get Title {string}")
+    public void goToThirdPageGetTitle(String thirdTitle) {
+        landingPage.getTitlePage(landingPage.pageTitle, thirdTitle);
     }
 
-    @And("Third Page Get Description")
-    public void thirdPageGetDescription() {
-        landingPage.getThirdPageDescription();
+    @And("Third Page Get Description {string}")
+    public void thirdPageGetDescription(String thirdDesc) {
+        landingPage.getTitlePage(landingPage.pageDetailText, thirdDesc);
     }
 
     @When("Third Page Skip Button")
     public void thirdPageSkipButton() {
-        landingPage.clickSkipButton();
+        landingPage.clickElement(landingPage.skipButton);
     }
 
     @And("Close Advertising")
     public void closeAdvertising() throws InterruptedException {
         Thread.sleep(3000);
-        landingPage.closeAdvertising1();
-        landingPage.closeAdvertising2();
+        landingPage.clikCloseAdvertising();
+        landingPage.tapCordinatesCloseAdvertising();
     }
 
     @Then("Go To Home Page")

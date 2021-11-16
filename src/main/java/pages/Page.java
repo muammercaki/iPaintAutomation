@@ -2,14 +2,9 @@ package pages;
 
 import io.appium.java_client.*;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.android.AndroidTouchAction;
-import io.appium.java_client.touch.LongPressOptions;
-import io.appium.java_client.touch.TapOptions;
-import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 
 import java.util.List;
@@ -33,6 +28,11 @@ public class Page {
     }
 
     public Page() {
+    }
+
+    public void getTitlePage(By element, String getValue) {
+        String acText = driver.findElement(element).getText();
+        Assert.assertTrue(acText.contains(getValue));
     }
 
     public LandingPage clickSkipButton() {
@@ -60,7 +60,7 @@ public class Page {
         return new OtherPage(driver);
     }
 
-    public void closeAdvertising1() {
+    public void clikCloseAdvertising() {
         List<MobileElement> dynamicElement = driver.findElements(advertising1Close);
         if (dynamicElement.size() != 0) {
             System.out.println("Element present");
@@ -71,7 +71,7 @@ public class Page {
 
     }
 
-    public void closeAdvertising2() {
+    public void tapCordinatesCloseAdvertising() {
         List<MobileElement> dynamicElement = driver.findElements(advertising2Close);
 
         if (dynamicElement.size()!=0) {

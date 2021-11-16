@@ -7,15 +7,16 @@ import org.testng.Assert;
 
 public class MyStudiesPage extends Page {
 
-    private By myStudiesTitle = By.id("com.teknasyon.coloringbook:id/toolbarTitle");
+    public By myStudiesTitle = By.id("com.teknasyon.coloringbook:id/toolbarTitle");
+    public By navBarMyStudies = By.id("com.teknasyon.coloringbook:id/myWork");
+    public By startPaintingButton = By.id("com.teknasyon.coloringbook:id/startPainting");
 
     public MyStudiesPage(AndroidDriver driver) {
         this.driver = driver;
     }
 
-    public void myStudiesPageTitle() {
-        String actualTitle = driver.findElement(myStudiesTitle).getText();
-        Assert.assertTrue(actualTitle.contains("Çalışmalarım"));
-        System.out.println("My Strudies Title: "+ driver.findElement(myStudiesTitle).getText());
+    public void myStudiesPageTitle(By element, String myStTitle) {
+        String acTitle = driver.findElement(element).getText();
+        Assert.assertTrue(acTitle.contains(myStTitle));
     }
 }
